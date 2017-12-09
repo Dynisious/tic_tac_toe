@@ -14,7 +14,7 @@ use std::io::{Read, Write};
 fn main() {
     let listener = TcpListener::bind("0.0.0.0:1234").unwrap();
     
-    println!("Listening on {:?}...", listener.local_addr().unwrap());
+    eprintln!("Listening on {:?}...", listener.local_addr().unwrap());
     listener.incoming() //This gets an infinite iterator, it will block untill a new connection is available.
     .for_each(|stream| {
         match stream {
